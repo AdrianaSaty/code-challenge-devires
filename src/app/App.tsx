@@ -1,11 +1,12 @@
 import React from 'react';
 import Home from 'pages/Home/Home';
+import { AppContainer } from './styles';
 
 function App() {
   return (
-    <div className="App">
+    <AppContainer>
       <Home></Home>
-    </div>
+    </AppContainer>
   );
 }
 
