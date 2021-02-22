@@ -1,4 +1,5 @@
-import Todo from 'components/Todo/Todo';
+import Todo from 'components/TodoForm';
+import TodoItem from 'components/TodoItem';
 import React from 'react';
 
 function Home() {
@@ -6,6 +7,7 @@ function Home() {
     <div className="Home">
       <h1>Welcome to Devires Todo App!</h1>
       <Todo />
+      <TodoItem description="teste" isCompleted={true}></TodoItem>
     </div>
   );
 }
