@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const Form = styled.form``;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  padding: 0 20px;
+`;
 
 export const Submit = styled.button`
   cursor: pointer;
