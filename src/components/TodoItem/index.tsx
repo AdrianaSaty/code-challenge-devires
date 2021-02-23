@@ -15,7 +15,6 @@ function TodoItem(props: TodoItemProps) {
 
   const onChangeCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, name } = e.target;
-    console.log(checked, name);
     dispatch(completeTodo(parseInt(name), checked));
   };
 

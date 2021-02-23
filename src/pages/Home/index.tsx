@@ -13,7 +13,6 @@ const Home: React.FC = () => {
     dispatch(getAllTodos());
   }, [dispatch]);
 
-  console.log(dataTodo);
   return (
     <div className="Home">
       <h1>Welcome to Devires Todo App!</h1>
