@@ -1,4 +1,4 @@
-import Todo from 'components/TodoForm';
+import TodoForm from 'components/TodoForm';
 import TodoItem from 'components/TodoItem';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
         <h2>Error connecting to server. Please try again </h2>
       ) : (
         <div>
-          <Todo />
+          <TodoForm />
           {dataTodo.dataTodo.map((todo) => (
             <div key={todo.id}>
               <TodoItem

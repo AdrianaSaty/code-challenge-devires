@@ -58,4 +58,17 @@ export const deleteTodo = (id: number): AppThunk => async (dispatch: Dispatch) =
   }
 };
 
+export const addTodo = (description: string): AppThunk => async (
+  dispatch: Dispatch
+) => {
+  try {
+    const request = { description, isCompleted: false };
+    await api.post('/todos/', request);
+    const response = await api.get<IToDo[]>('/todos');
+    dispatch(getAllTodosSuccess(response.data));
+  } catch (err) {
+    dispatch(getAllTodosError(err.toString()));
+  }
+};
+
 export const todoState = (state: RootState) => state.todoReducer;
