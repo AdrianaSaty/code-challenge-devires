@@ -1,15 +1,42 @@
 import Todo from 'components/TodoForm';
 import TodoItem from 'components/TodoItem';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllTodos } from 'store/ducks/todo.duck';
+import { RootState } from 'store';
 
-function Home() {
+const Home: React.FC = () => {
+  const dispatch = useDispatch();
+  const dataTodo = useSelector((store: RootState) => store.todoReducer);
+
+  useEffect(() => {
+    dispatch(getAllTodos());
+  }, [dispatch]);
+
+  console.log(dataTodo);
   return (
     <div className="Home">
       <h1>Welcome to Devires Todo App!</h1>
-      <Todo />
-      <TodoItem description="teste" isCompleted={true}></TodoItem>
+      {dataTodo.error ? (
+        <h2>Error connecting to server. Please try again </h2>
+      ) : (
+        <div>
+          <Todo />
+          {dataTodo.dataTodo.map((todo) => (
+            <div key={todo.id.toString()}>
+              <TodoItem
+                description={todo.description}
+                isCompleted={
+                  todo.isCompleted !== undefined ? todo.isCompleted : false
+                }
+                id={todo.id.toString()}
+              ></TodoItem>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Home;
