@@ -18,17 +18,11 @@ const todoSlice = createSlice({
   name: 'todo',
   initialState: INITIAL_STATE,
   reducers: {
-    getAllTodosSuccess: (
-      state: State,
-      { payload }: PayloadAction<any | undefined>
-    ) => ({
+    getAllTodosSuccess: (state: State, { payload }: PayloadAction<IToDo[]>) => ({
       ...state,
       dataTodo: payload,
     }),
-    getAllTodosError: (
-      state: State,
-      { payload }: PayloadAction<any | undefined>
-    ) => {
+    getAllTodosError: (state: State, { payload }: PayloadAction<string>) => {
       state.error = payload;
     },
   },
