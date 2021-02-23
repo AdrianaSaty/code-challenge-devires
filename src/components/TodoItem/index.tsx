@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './styles';
+import { Container, TrashIcon } from './styles';
 
 interface TodoItemProps {
   isCompleted: boolean;
@@ -25,6 +25,7 @@ function TodoItem(props: TodoItemProps) {
         >
           <input type="checkbox" onChange={onChangeCheckbox} name={id} />
           {description}
+          <TrashIcon src="/images/trash_icon.svg" alt="Trash Logo" />
         </label>
       </div>
     </Container>

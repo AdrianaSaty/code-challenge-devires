@@ -32,7 +32,4 @@ export const TextInput = styled.input`
   margin: 1em 0;
   padding: 0.25em 1em;
   transition: 0.5s all ease-out;
-  &:hover {
-    color: white;
-  }
 `;
