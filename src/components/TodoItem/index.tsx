@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteTodo } from 'store/ducks/todo.duck';
+import { completeTodo, deleteTodo } from 'store/ducks/todo.duck';
 import { Container, TrashIcon } from './styles';
 
 interface TodoItemProps {
@@ -16,6 +16,7 @@ function TodoItem(props: TodoItemProps) {
   const onChangeCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, name } = e.target;
     console.log(checked, name);
+    dispatch(completeTodo(parseInt(name), checked));
   };
 
   return (
@@ -26,7 +27,12 @@ function TodoItem(props: TodoItemProps) {
           style={{ textDecoration: isCompleted ? 'line-through' : 'none' }}
           htmlFor={id.toString()}
         >
-          <input type="checkbox" onChange={onChangeCheckbox} name={id.toString()} />
+          <input
+            type="checkbox"
+            checked={isCompleted}
+            onChange={onChangeCheckbox}
+            name={id.toString()}
+          />
           {description}
           <TrashIcon
             src="/images/trash_icon.svg"
