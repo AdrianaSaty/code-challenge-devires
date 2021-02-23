@@ -23,13 +23,13 @@ const Home: React.FC = () => {
         <div>
           <Todo />
           {dataTodo.dataTodo.map((todo) => (
-            <div key={todo.id.toString()}>
+            <div key={todo.id}>
               <TodoItem
                 description={todo.description}
                 isCompleted={
                   todo.isCompleted !== undefined ? todo.isCompleted : false
                 }
-                id={todo.id.toString()}
+                id={todo.id}
               ></TodoItem>
             </div>
           ))}
